@@ -9,10 +9,16 @@ app.use(express.json());
 
 const monuRoute=require('./routes/monuRoute')
 
+app.use(cors(
+  {
+    origin: {"https://ticketless-entry-way-system-to-monuments.vercel.app/"},
+    methods: {"POST", "GET", "DELETE", "PUT"},
+    credentials: true
+  }
+));
 
-
-app.use('/api/monuments',monuRoute)
-app.use('/api/users',userRoute)
+app.use(monuRoute)
+app.use(userRoute)
 
 // if(process.env.NODE_ENV==='production'){
 //     app.use(express.static(path.join(__dirname,'/client/build')))
