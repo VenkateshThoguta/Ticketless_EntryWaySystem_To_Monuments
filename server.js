@@ -45,3 +45,6 @@ const startServer = () => {
 
 startServer();
 
+module.exports=(req,res)=>{
+  res.send("message");
+};
