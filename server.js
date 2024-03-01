@@ -32,7 +32,16 @@ app.use(userRoute)
 //     })
 // }
 
+const startServer = () => {
+    try {
+        connectDB(process.env.MONGODB_URL);
+        app.listen(5000, () => {
+            console.log("Server listening on [^2^][6]");
+        });
+    } catch (err) {
+        console.log(err);
+    }
+};
 
+startServer();
 
-const port=process.env.PORT||5000;
-app.listen(port,()=>'server running')
