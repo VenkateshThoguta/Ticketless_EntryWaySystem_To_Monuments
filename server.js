@@ -4,10 +4,15 @@ const monu=require('./models/monumentmodel')
 const app=express();
 const userRoute=require('./routes/userRoute')
 const db=require('./db.js')
+const cors=require('cors')
 app.use(express.json());
 
 const monuRoute=require('./routes/monuRoute')
 
+app.use(cors({
+  origin:["https://ticketless-entry-way-system-to-monuments.vercel.app/"],
+  methods:["POST","GET"]
+}))
 
 app.use('/api/monuments',monuRoute)
 app.use('/api/users',userRoute)
