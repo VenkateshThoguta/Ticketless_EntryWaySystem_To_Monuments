@@ -3,7 +3,7 @@ const router=express.Router()
 
 const monu=require('../models/monumentmodel')
 
-router.get('https://ticketless-entry-way-system-to-monuments.vercel.app/getallmonuments',async(req,res)=>{
+router.get('https://ticketless-entrywaysystem-to-monuments.onrender.com/getallmonuments',async(req,res)=>{
     try{
         const monus=await monu.find({})
         res.send(monus)
@@ -13,7 +13,7 @@ router.get('https://ticketless-entry-way-system-to-monuments.vercel.app/getallmo
     }
 })
 
-router.post("https://ticketless-entry-way-system-to-monuments.vercel.app/addmonument",async(req,res)=>{
+router.post("https://ticketless-entrywaysystem-to-monuments.onrender.com/addmonument",async(req,res)=>{
     const monum=req.body.monument
     try {
         const newmonu=new monu({
@@ -32,7 +32,7 @@ router.post("https://ticketless-entry-way-system-to-monuments.vercel.app/addmonu
     
 })
 
-router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/getmonumentbyid',async(req,res)=>{
+router.post('https://ticketless-entrywaysystem-to-monuments.onrender.com/getmonumentbyid',async(req,res)=>{
     const monumentid=req.body.monumentid
     try {
         const monus=await monu.findOne({_id:monumentid})
@@ -42,7 +42,7 @@ router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/getmonu
     }
 })
 
-router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/editmonument',async(req,res)=>{
+router.post('https://ticketless-entrywaysystem-to-monuments.onrender.com/editmonument',async(req,res)=>{
     const edit=req.body.upmonument
     try {
         const monust=await monu.findOne({_id:edit._id})
@@ -57,7 +57,7 @@ router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/editmon
         return res.send('error')
     }
 })
-router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/deletemonument',async (req,res)=>{
+router.post('https://ticketless-entrywaysystem-to-monuments.onrender.com/deletemonument',async (req,res)=>{
     const monuid=req.body.monumentid
     try {
         await monu.findOneAndDelete({_id:monuid})
