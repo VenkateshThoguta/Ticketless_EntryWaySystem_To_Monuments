@@ -2,7 +2,7 @@ const express=require('express')
 const router=express()
 const User=require('../models/userModel')
 console.log(User)
-router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/register',async (req,res)=>{
+router.post('https://ticketless-entrywaysystem-to-monuments.onrender.com/register',async (req,res)=>{
     const {name,email,password}=req.body
     const newUser=new User({name,email,password})
     try {
@@ -21,7 +21,7 @@ router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/registe
     }
 })
 
-router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/login',async(req,res)=>{
+router.post('https://ticketless-entrywaysystem-to-monuments.onrender.com/login',async(req,res)=>{
     const {email,password}=req.body
     
     try {
@@ -44,7 +44,7 @@ router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/login',
     }
 })
 
-router.get('https://ticketless-entry-way-system-to-monuments.vercel.app/getallusers',async (req,res)=>{
+router.get('https://ticketless-entrywaysystem-to-monuments.onrender.com/getallusers',async (req,res)=>{
     try{
         const users=await User.find({})
         res.send(users)
@@ -53,7 +53,7 @@ router.get('https://ticketless-entry-way-system-to-monuments.vercel.app/getallus
         return res.send('err')
     }
 })
-router.post('https://ticketless-entry-way-system-to-monuments.vercel.app/deleteuser',async(req,res)=>{
+router.post('https://ticketless-entrywaysystem-to-monuments.onrender.com/deleteuser',async(req,res)=>{
     const userid=req.body.userid
     try {
         await User.findOneAndDelete({_id:userid})
